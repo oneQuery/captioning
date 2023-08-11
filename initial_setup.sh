@@ -1,7 +1,8 @@
 #!/bin/bash
 
 FILE_ID="1q7K0Tv43dkEjN4fU-UmpQ-pzfP6i8_8-"
-DESTINATION="downloaded_file"
+DESTINATION="videos.zip"
+UNZIP_DESTINATION="videos"  # Directory where you want to unzip the files
 
 # Check if the file already exists
 if [ ! -f "${DESTINATION}" ]; then
@@ -12,4 +13,10 @@ else
     echo "${DESTINATION} already exists. Skipping download."
 fi
 
-pip install -r requirement.txt
+# Unzip the downloaded file
+if [ -f "${DESTINATION}" ]; then
+    unzip -o "${DESTINATION}" -d "${UNZIP_DESTINATION}"
+    echo "Unzipped the file to ${UNZIP_DESTINATION}"
+fi
+
+pip install -r requirements.txt
