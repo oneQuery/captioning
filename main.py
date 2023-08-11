@@ -6,7 +6,7 @@ from lavis.models import load_model_and_preprocess
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load sample image
-raw_image = Image.open("lavis/merlion.png").convert("RGB")
+raw_image = Image.open("merlion.png").convert("RGB")
 
 # Loads BLIP caption base model, with finetuned checkpoints on MSCOCO captioning dataset.
 # This also loads the associated image processors
